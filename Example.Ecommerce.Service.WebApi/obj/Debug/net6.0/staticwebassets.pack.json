@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\css\\SwaggerCustom.css",
+      "PackagePath": "staticwebassets\\css\\SwaggerCustom.css"
+    },
+    {
+      "Id": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\css\\dotnet.css",
+      "PackagePath": "staticwebassets\\css\\dotnet.css"
+    },
+    {
+      "Id": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\img\\logo2.png",
+      "PackagePath": "staticwebassets\\img\\logo2.png"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Example.Ecommerce.Service.WebApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Example.Ecommerce.Service.WebApi.props",
+      "PackagePath": "build\\Example.Ecommerce.Service.WebApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Example.Ecommerce.Service.WebApi.props",
+      "PackagePath": "buildMultiTargeting\\Example.Ecommerce.Service.WebApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Example.Ecommerce.Service.WebApi.props",
+      "PackagePath": "buildTransitive\\Example.Ecommerce.Service.WebApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
