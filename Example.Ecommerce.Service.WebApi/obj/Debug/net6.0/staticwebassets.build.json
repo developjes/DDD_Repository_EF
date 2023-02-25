@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "q+rK8gxqkB1KIcM3Os5S05PA4Kwk3tzKGi2rZ7o82ls=",
+  "Source": "Example.Ecommerce.Service.WebApi",
+  "BasePath": "_content/Example.Ecommerce.Service.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Example.Ecommerce.Service.WebApi\\wwwroot",
+      "Source": "Example.Ecommerce.Service.WebApi",
+      "ContentRoot": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\",
+      "BasePath": "_content/Example.Ecommerce.Service.WebApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\css\\dotnet.css",
+      "SourceId": "Example.Ecommerce.Service.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\",
+      "BasePath": "_content/Example.Ecommerce.Service.WebApi",
+      "RelativePath": "css/dotnet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\dotnet.css"
+    },
+    {
+      "Identity": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\css\\SwaggerCustom.css",
+      "SourceId": "Example.Ecommerce.Service.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\",
+      "BasePath": "_content/Example.Ecommerce.Service.WebApi",
+      "RelativePath": "css/SwaggerCustom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\SwaggerCustom.css"
+    },
+    {
+      "Identity": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\img\\logo2.png",
+      "SourceId": "Example.Ecommerce.Service.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\wwwroot\\",
+      "BasePath": "_content/Example.Ecommerce.Service.WebApi",
+      "RelativePath": "img/logo2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo2.png"
+    }
+  ]
+}
