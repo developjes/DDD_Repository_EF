@@ -214,11 +214,11 @@
           }
         }
       },
-      "FluentValidation/10.0.0": {
+      "FluentValidation/11.5.1": {
         "runtime": {
-          "lib/net5.0/FluentValidation.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "10.0.0.0"
+          "lib/net6.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.5.1.0"
           }
         }
       },
@@ -338,7 +338,7 @@
       },
       "MicroElements.Swashbuckle.FluentValidation/5.7.0": {
         "dependencies": {
-          "FluentValidation": "10.0.0",
+          "FluentValidation": "11.5.1",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0"
         },
         "runtime": {
@@ -2637,10 +2637,20 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "Example.Ecommerce.Application.Interface": "1.0.0",
+          "Example.Ecommerce.Application.Validator": "1.0.0",
           "Example.Ecommerce.Domain.Interface": "1.0.0"
         },
         "runtime": {
           "Example.Ecommerce.Application.Main.dll": {}
+        }
+      },
+      "Example.Ecommerce.Application.Validator/1.0.0": {
+        "dependencies": {
+          "Example.Ecommerce.Application.DTO": "1.0.0",
+          "FluentValidation": "11.5.1"
+        },
+        "runtime": {
+          "Example.Ecommerce.Application.Validator.dll": {}
         }
       },
       "Example.Ecommerce.Domain.Core/1.0.0": {
@@ -2826,12 +2836,12 @@
       "path": "dnsclient/1.6.1",
       "hashPath": "dnsclient.1.6.1.nupkg.sha512"
     },
-    "FluentValidation/10.0.0": {
+    "FluentValidation/11.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jNFPbLjBy/bfIWx4BV/WVEsS+1OxBVf22mmSdvVa9RCHJDkNhAjbKZkxgA0s1rYNFxVn+a1fQbos95t4j/z3Zg==",
-      "path": "fluentvalidation/10.0.0",
-      "hashPath": "fluentvalidation.10.0.0.nupkg.sha512"
+      "sha512": "sha512-0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
+      "path": "fluentvalidation/11.5.1",
+      "hashPath": "fluentvalidation.11.5.1.nupkg.sha512"
     },
     "Fractions/4.0.1": {
       "type": "package",
@@ -4636,6 +4646,11 @@
       "sha512": ""
     },
     "Example.Ecommerce.Application.Main/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Example.Ecommerce.Application.Validator/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

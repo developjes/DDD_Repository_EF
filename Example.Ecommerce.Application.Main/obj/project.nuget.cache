@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+S4YZ4g2JfKNm7ui86u5ZdEjbRNs46jPZIpcxO7xZtoqhgeaF9Y1OXbCfkD0gaLQ3CqYqedE7lIxa5fiIif76Q==",
+  "dgSpecHash": "iV4uuPKFMKwVSv60c5PRpGJsiNTCb92o9x9XfybG8ITUQc3O3FYey+sD+Xs0DbquotqzJM8mRDdi+V5opusl7A==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Application.Main\\Example.Ecommerce.Application.Main.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jsolarte\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\jsolarte\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
   ],
   "logs": []

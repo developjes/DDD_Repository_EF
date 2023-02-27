@@ -250,15 +250,15 @@
           }
         }
       },
-      "FluentValidation/10.0.0": {
+      "FluentValidation/11.5.1": {
         "type": "package",
         "compile": {
-          "lib/net5.0/FluentValidation.dll": {
+          "lib/net6.0/FluentValidation.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/FluentValidation.dll": {
+          "lib/net6.0/FluentValidation.dll": {
             "related": ".xml"
           }
         }
@@ -4760,6 +4760,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "Example.Ecommerce.Application.Interface": "1.0.0",
+          "Example.Ecommerce.Application.Validator": "1.0.0",
           "Example.Ecommerce.Domain.Interface": "1.0.0"
         },
         "compile": {
@@ -4767,6 +4768,20 @@
         },
         "runtime": {
           "bin/placeholder/Example.Ecommerce.Application.Main.dll": {}
+        }
+      },
+      "Example.Ecommerce.Application.Validator/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Example.Ecommerce.Application.DTO": "1.0.0",
+          "FluentValidation": "11.5.1"
+        },
+        "compile": {
+          "bin/placeholder/Example.Ecommerce.Application.Validator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Example.Ecommerce.Application.Validator.dll": {}
         }
       },
       "Example.Ecommerce.Domain.Core/1.0.0": {
@@ -5127,18 +5142,23 @@
         "lib/netstandard2.1/DnsClient.xml"
       ]
     },
-    "FluentValidation/10.0.0": {
-      "sha512": "jNFPbLjBy/bfIWx4BV/WVEsS+1OxBVf22mmSdvVa9RCHJDkNhAjbKZkxgA0s1rYNFxVn+a1fQbos95t4j/z3Zg==",
+    "FluentValidation/11.5.1": {
+      "sha512": "0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
       "type": "package",
-      "path": "fluentvalidation/10.0.0",
+      "path": "fluentvalidation/11.5.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "README.md",
         "fluent-validation-icon.png",
-        "fluentvalidation.10.0.0.nupkg.sha512",
+        "fluentvalidation.11.5.1.nupkg.sha512",
         "fluentvalidation.nuspec",
         "lib/net5.0/FluentValidation.dll",
         "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
         "lib/netstandard2.0/FluentValidation.dll",
         "lib/netstandard2.0/FluentValidation.xml",
         "lib/netstandard2.1/FluentValidation.dll",
@@ -12608,6 +12628,11 @@
       "type": "project",
       "path": "../Example.Ecommerce.Application.Main/Example.Ecommerce.Application.Main.csproj",
       "msbuildProject": "../Example.Ecommerce.Application.Main/Example.Ecommerce.Application.Main.csproj"
+    },
+    "Example.Ecommerce.Application.Validator/1.0.0": {
+      "type": "project",
+      "path": "../Example.Ecommerce.Application.Validator/Example.Ecommerce.Application.Validator.csproj",
+      "msbuildProject": "../Example.Ecommerce.Application.Validator/Example.Ecommerce.Application.Validator.csproj"
     },
     "Example.Ecommerce.Domain.Core/1.0.0": {
       "type": "project",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AaPNR14WZF6sjzXAMmiSWliqAbBsXyx179L041wXgYqpmLjIFAKTwNj7ehFttRTLWMq4ENPeqcCq05BnRkOOMw==",
+  "dgSpecHash": "3mGlHmGT0JXicVbQxiZPR+vL0laoHn9CNSFM7gkC9iP10ad1odIq1kQfmDFVKCxy3N29lq2Io5+uPNKkDgXM6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Service.WebApi\\Example.Ecommerce.Service.WebApi.csproj",
   "expectedPackageFiles": [
@@ -18,7 +18,7 @@
     "C:\\Users\\jsolarte\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
-    "C:\\Users\\jsolarte\\.nuget\\packages\\fluentvalidation\\10.0.0\\fluentvalidation.10.0.0.nupkg.sha512",
+    "C:\\Users\\jsolarte\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\fractions\\4.0.1\\fractions.4.0.1.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

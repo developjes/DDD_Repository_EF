@@ -18,6 +18,19 @@
           }
         }
       },
+      "FluentValidation/11.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
@@ -49,6 +62,20 @@
         },
         "runtime": {
           "bin/placeholder/Example.Ecommerce.Application.Interface.dll": {}
+        }
+      },
+      "Example.Ecommerce.Application.Validator/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Example.Ecommerce.Application.DTO": "1.0.0",
+          "FluentValidation": "11.5.1"
+        },
+        "compile": {
+          "bin/placeholder/Example.Ecommerce.Application.Validator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Example.Ecommerce.Application.Validator.dll": {}
         }
       },
       "Example.Ecommerce.Domain.Entity/1.0.0": {
@@ -100,6 +127,29 @@
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
         "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "FluentValidation/11.5.1": {
+      "sha512": "0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
+      "type": "package",
+      "path": "fluentvalidation/11.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.5.1.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -181,6 +231,11 @@
       "path": "../Example.Ecommerce.Application.Interface/Example.Ecommerce.Application.Interface.csproj",
       "msbuildProject": "../Example.Ecommerce.Application.Interface/Example.Ecommerce.Application.Interface.csproj"
     },
+    "Example.Ecommerce.Application.Validator/1.0.0": {
+      "type": "project",
+      "path": "../Example.Ecommerce.Application.Validator/Example.Ecommerce.Application.Validator.csproj",
+      "msbuildProject": "../Example.Ecommerce.Application.Validator/Example.Ecommerce.Application.Validator.csproj"
+    },
     "Example.Ecommerce.Domain.Entity/1.0.0": {
       "type": "project",
       "path": "../Example.Ecommerce.Domain.Entity/Example.Ecommerce.Domain.Entity.csproj",
@@ -201,6 +256,7 @@
     "net6.0": [
       "AutoMapper >= 12.0.1",
       "Example.Ecommerce.Application.Interface >= 1.0.0",
+      "Example.Ecommerce.Application.Validator >= 1.0.0",
       "Example.Ecommerce.Domain.Interface >= 1.0.0"
     ]
   },
@@ -237,6 +293,9 @@
           "projectReferences": {
             "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Application.Interface\\Example.Ecommerce.Application.Interface.csproj": {
               "projectPath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Application.Interface\\Example.Ecommerce.Application.Interface.csproj"
+            },
+            "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Application.Validator\\Example.Ecommerce.Application.Validator.csproj": {
+              "projectPath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Application.Validator\\Example.Ecommerce.Application.Validator.csproj"
             },
             "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.Interface\\Example.Ecommerce.Domain.Interface.csproj": {
               "projectPath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.Interface\\Example.Ecommerce.Domain.Interface.csproj"

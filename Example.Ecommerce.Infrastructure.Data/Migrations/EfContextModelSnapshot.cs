@@ -17,41 +17,297 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("ProductVersion", "6.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("Example.Ecommerce.Domain.Entity.CategoryEntity", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CategoryId")
+                        .HasColumnOrder(1)
+                        .HasComment("Id tabla");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
-
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
                     b.Property<DateTime>("CreateAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreateAt")
+                        .HasColumnOrder(7)
+                        .HasComment("Fecha de creacion del registro");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Description")
+                        .HasColumnOrder(3)
+                        .HasComment("Descripcion de la categoria");
 
-                    b.Property<byte[]>("Picture")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2)
+                        .HasComment("Nombre de la categoria");
+
+                    b.Property<string>("Picture")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Picture")
+                        .HasColumnOrder(4)
+                        .HasComment("imagen de la categoria");
+
+                    b.Property<int?>("PlanId")
+                        .HasColumnType("int")
+                        .HasColumnName("PlanId")
+                        .HasColumnOrder(6)
+                        .HasComment("Id tabla foranea");
+
+                    b.Property<int>("StateId")
+                        .HasColumnType("int")
+                        .HasColumnName("StateId")
+                        .HasColumnOrder(5)
+                        .HasComment("Id tabla foranea");
 
                     b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdateAt")
+                        .HasColumnOrder(8)
+                        .HasComment("Fecha de actualizacion del registro");
 
                     b.HasKey("CategoryId");
 
+                    b.HasIndex("PlanId");
+
+                    b.HasIndex("StateId");
+
                     b.ToTable("Category", "Parametrization");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.MovieCategoryEntity", b =>
+                {
+                    b.Property<int>("MovieCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("MovieCategoryId")
+                        .HasColumnOrder(1)
+                        .HasComment("Id tabla");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MovieCategoryId"), 1L, 1);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int")
+                        .HasColumnName("CategoryId")
+                        .HasColumnOrder(3)
+                        .HasComment("Id tabla foranea");
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreateAt")
+                        .HasColumnOrder(4)
+                        .HasComment("Fecha de creacion del registro");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int")
+                        .HasColumnName("MovieId")
+                        .HasColumnOrder(2)
+                        .HasComment("Id tabla foranea");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdateAt")
+                        .HasColumnOrder(5)
+                        .HasComment("Fecha de actualizacion del registro");
+
+                    b.HasKey("MovieCategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("MovieCategory", "Parametrization");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.MovieEntity", b =>
+                {
+                    b.Property<int>("MovieId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("MovieId")
+                        .HasColumnOrder(1)
+                        .HasComment("Id tabla");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MovieId"), 1L, 1);
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreateAt")
+                        .HasColumnOrder(4)
+                        .HasComment("Fecha de creacion del registro");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Description")
+                        .HasColumnOrder(3)
+                        .HasComment("Descripcion de la categoria");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2)
+                        .HasComment("Nombre de la categoria");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdateAt")
+                        .HasColumnOrder(5)
+                        .HasComment("Fecha de actualizacion del registro");
+
+                    b.HasKey("MovieId");
+
+                    b.ToTable("Movie", "Parametrization");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.PlanEntity", b =>
+                {
+                    b.Property<int>("PlanId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("PlanId")
+                        .HasColumnOrder(1)
+                        .HasComment("Id tabla");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlanId"), 1L, 1);
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreateAt")
+                        .HasColumnOrder(3)
+                        .HasComment("Fecha de creacion del registro");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2)
+                        .HasComment("Nombre del plan");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdateAt")
+                        .HasColumnOrder(4)
+                        .HasComment("Fecha de actualizacion del registro");
+
+                    b.HasKey("PlanId");
+
+                    b.ToTable("Plan", "Parametrization");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.StateEntity", b =>
+                {
+                    b.Property<int>("StateId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("StateId")
+                        .HasColumnOrder(1)
+                        .HasComment("Id tabla");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StateId"), 1L, 1);
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreateAt")
+                        .HasColumnOrder(4)
+                        .HasComment("Fecha de creacion del registro");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Description")
+                        .HasColumnOrder(3)
+                        .HasComment("Descripcion del estado");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2)
+                        .HasComment("Nombre del estado");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdateAt")
+                        .HasColumnOrder(5)
+                        .HasComment("Fecha de actualizacion del registro");
+
+                    b.HasKey("StateId");
+
+                    b.ToTable("State", "Parametrization");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.CategoryEntity", b =>
+                {
+                    b.HasOne("Example.Ecommerce.Domain.Entity.PlanEntity", "Plan")
+                        .WithMany("Categories")
+                        .HasForeignKey("PlanId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Example.Ecommerce.Domain.Entity.StateEntity", "State")
+                        .WithMany("Categories")
+                        .HasForeignKey("StateId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Plan");
+
+                    b.Navigation("State");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.MovieCategoryEntity", b =>
+                {
+                    b.HasOne("Example.Ecommerce.Domain.Entity.CategoryEntity", "Category")
+                        .WithMany("MoviesCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Example.Ecommerce.Domain.Entity.MovieEntity", "Movie")
+                        .WithMany("MoviesCategories")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.CategoryEntity", b =>
+                {
+                    b.Navigation("MoviesCategories");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.MovieEntity", b =>
+                {
+                    b.Navigation("MoviesCategories");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.PlanEntity", b =>
+                {
+                    b.Navigation("Categories");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.StateEntity", b =>
+                {
+                    b.Navigation("Categories");
                 });
 #pragma warning restore 612, 618
         }

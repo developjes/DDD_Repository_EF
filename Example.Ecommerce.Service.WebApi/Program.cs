@@ -7,6 +7,7 @@ using Example.Ecommerce.Service.WebApi.Handlers.Extension.Injection;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Mapper;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Mssql;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Swagger;
+using Example.Ecommerce.Service.WebApi.Handlers.Extension.Validator;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Versioning;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Watch;
 using Example.Ecommerce.Service.WebApi.Handlers.Middleware;
@@ -33,8 +34,10 @@ builder.Services.AddControllers(x =>
 })
 .AddJsonOptions(options =>
 {
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
     options.JsonSerializerOptions.Converters.Add(new DateTimeConverter());
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    options.JsonSerializerOptions.Converters.Add(new ByteArrayConverter());
 });
 
 builder.Services.AddEndpointsApiExplorer();
@@ -83,6 +86,8 @@ builder.Services.AddSession();
 
 #region Validator Input Dto
 
+builder.Services.AddValidator();
+
 #endregion
 
 #region Mssql
@@ -94,18 +99,6 @@ builder.Services.AddSqlServer(builder.Configuration);
 #region HealthCheck
 
 builder.Services.AddHealthCheck(builder.Configuration);
-
-#endregion
-
-#region XLM support for input
-
-builder.Services.AddControllers(options => options.RespectBrowserAcceptHeader = true)
-    .AddXmlSerializerFormatters()
-    .AddXmlDataContractSerializerFormatters();
-
-#endregion
-
-#region RateLimiting
 
 #endregion
 

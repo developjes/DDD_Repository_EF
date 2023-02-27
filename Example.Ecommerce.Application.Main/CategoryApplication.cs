@@ -2,9 +2,11 @@
 using Example.Ecommerce.Application.DTO.Request;
 using Example.Ecommerce.Application.DTO.Response;
 using Example.Ecommerce.Application.Interface;
+using Example.Ecommerce.Application.Validator.InputValidator;
 using Example.Ecommerce.Domain.Entity;
 using Example.Ecommerce.Domain.Interface;
 using Example.Ecommerce.Transversal.Common.Generic;
+using FluentValidation.Results;
 
 namespace Example.Ecommerce.Application.Main
 {
@@ -12,9 +14,10 @@ namespace Example.Ecommerce.Application.Main
     {
         private readonly ICategoryDomain _categoryDomain;
         private readonly IMapper _mapper;
+        private readonly CategoryRequestDtoValidator _categoryRequestDtoValidator;
 
-        public CategoryApplication(ICategoryDomain categoryDomain, IMapper mapper) =>
-            (_categoryDomain, _mapper) = (categoryDomain, mapper);
+        public CategoryApplication(ICategoryDomain categoryDomain, IMapper mapper, CategoryRequestDtoValidator categoryRequestDtoValidator) =>
+            (_categoryDomain, _mapper, _categoryRequestDtoValidator) = (categoryDomain, mapper, categoryRequestDtoValidator);
 
         public async Task<Response<IEnumerable<CategoryResponseDto>>> GetAsync()
         {
@@ -38,12 +41,21 @@ namespace Example.Ecommerce.Application.Main
             return response;
         }
 
-        public Response<bool> Insert(CategoryRequestDto categoryDto)
+        public Response<bool> Insert(CategoryRequestDto categoryRequestDto)
         {
             Response<bool> response = new();
+            ValidationResult validationInput = _categoryRequestDtoValidator.Validate(categoryRequestDto);
+
+            if (!validationInput.IsValid)
+            {
+                response.Message = "Parametros no pueden ser vacios";
+                response.ValidationErrors = validationInput.Errors.Select(x => x.ErrorMessage);
+                return response;
+            }
+
             try
             {
-                CategoryEntity category = _mapper.Map<CategoryEntity>(categoryDto);
+                CategoryEntity category = _mapper.Map<CategoryEntity>(categoryRequestDto);
                 response.Data = _categoryDomain.Insert(category);
 
                 if (response.Data)

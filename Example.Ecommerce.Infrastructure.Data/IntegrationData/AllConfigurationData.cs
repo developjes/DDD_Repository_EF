@@ -1,5 +1,4 @@
-﻿using Example.Ecommerce.Domain.Entity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
 {
@@ -7,7 +6,12 @@ namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
     {
         public static ModelBuilder AddMoldelBuilderConfiguration(this ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder
+                .ApplyConfiguration(new StateConfig())
+                .ApplyConfiguration(new PlanConfig())
+                .ApplyConfiguration(new CategoryConfig())
+                .ApplyConfiguration(new MovieConfig())
+                .ApplyConfiguration(new MovieCategoryConfig());
 
             return modelBuilder;
         }
