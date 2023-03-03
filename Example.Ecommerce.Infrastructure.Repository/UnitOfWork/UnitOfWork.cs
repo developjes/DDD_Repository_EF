@@ -2,6 +2,7 @@
 using Example.Ecommerce.Infrastructure.Interface.Repository;
 using Example.Ecommerce.Infrastructure.Interface.UnitOfWork;
 using Example.Ecommerce.Infrastructure.Repository.Repository;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Example.Ecommerce.Infrastructure.Repository.UnitOfWork
 {
@@ -33,6 +34,10 @@ namespace Example.Ecommerce.Infrastructure.Repository.UnitOfWork
         public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
 
         #region Transaction
+
+        public async Task<IDbContextTransaction> BeginTransactionAsync() => await _context.Database.BeginTransactionAsync();
+        public async Task CommitAsync(IDbContextTransaction transaction) => await transaction.CommitAsync();
+        public async Task RollbackAsync(IDbContextTransaction transaction) => await transaction.RollbackAsync();
 
         #endregion
     }

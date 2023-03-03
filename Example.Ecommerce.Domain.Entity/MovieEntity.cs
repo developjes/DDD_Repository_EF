@@ -7,6 +7,6 @@ namespace Example.Ecommerce.Domain.Entity
         public int MovieId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public ICollection<MovieCategoryEntity>? MoviesCategories { get; set; }
+        public virtual ICollection<MovieCategoryEntity>? MoviesCategories { get; set; }
     }
 }

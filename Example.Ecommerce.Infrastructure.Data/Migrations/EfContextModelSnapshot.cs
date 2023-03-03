@@ -36,7 +36,6 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreateAt")
-                        .HasColumnOrder(7)
                         .HasComment("Fecha de creacion del registro");
 
                     b.Property<string>("Description")
@@ -67,25 +66,104 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Id tabla foranea");
 
-                    b.Property<int>("StateId")
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdateAt")
+                        .HasComment("Fecha de actualizacion del registro");
+
+                    b.Property<int>("_stateId")
+                        .IsUnicode(false)
                         .HasColumnType("int")
                         .HasColumnName("StateId")
                         .HasColumnOrder(5)
                         .HasComment("Id tabla foranea");
 
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("UpdateAt")
-                        .HasColumnOrder(8)
-                        .HasComment("Fecha de actualizacion del registro");
-
                     b.HasKey("CategoryId");
 
                     b.HasIndex("PlanId");
 
-                    b.HasIndex("StateId");
+                    b.HasIndex("_stateId");
 
                     b.ToTable("Category", "Parametrization");
+                });
+
+            modelBuilder.Entity("Example.Ecommerce.Domain.Entity.MessageEntity", b =>
+                {
+                    b.Property<string>("Key")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("Key")
+                        .HasColumnOrder(1)
+                        .HasComment("Key message");
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreateAt")
+                        .HasComment("Fecha de creacion del registro");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Description")
+                        .HasColumnOrder(2)
+                        .HasComment("Descripcion del mensaje");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdateAt")
+                        .HasComment("Fecha de actualizacion del registro");
+
+                    b.HasKey("Key");
+
+                    b.ToTable("Message", "Parametrization");
+
+                    b.HasData(
+                        new
+                        {
+                            Key = "NOT_FOUND",
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Registro(s) no encontrado(s)"
+                        },
+                        new
+                        {
+                            Key = "INSERT_SUCCESS",
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Registro creado correctamente"
+                        },
+                        new
+                        {
+                            Key = "UPDATE_SUCCESS",
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Registro editado correctamente"
+                        },
+                        new
+                        {
+                            Key = "DELETE_SUCCESS",
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Registro removido correctamente"
+                        },
+                        new
+                        {
+                            Key = "INSERT_ERROR",
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Registro no pudo ser creado correctamente"
+                        },
+                        new
+                        {
+                            Key = "UPDATE_ERROR",
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Registro no pudo ser editado correctamente"
+                        },
+                        new
+                        {
+                            Key = "DELETE_ERROR",
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Registro no pudo ser removido correctamente"
+                        },
+                        new
+                        {
+                            Key = "VALIDATION_ERROR",
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Errores de validación"
+                        });
                 });
 
             modelBuilder.Entity("Example.Ecommerce.Domain.Entity.MovieCategoryEntity", b =>
@@ -108,7 +186,6 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreateAt")
-                        .HasColumnOrder(4)
                         .HasComment("Fecha de creacion del registro");
 
                     b.Property<int>("MovieId")
@@ -120,7 +197,6 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("UpdateAt")
-                        .HasColumnOrder(5)
                         .HasComment("Fecha de actualizacion del registro");
 
                     b.HasKey("MovieCategoryId");
@@ -146,7 +222,6 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreateAt")
-                        .HasColumnOrder(4)
                         .HasComment("Fecha de creacion del registro");
 
                     b.Property<string>("Description")
@@ -167,7 +242,6 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("UpdateAt")
-                        .HasColumnOrder(5)
                         .HasComment("Fecha de actualizacion del registro");
 
                     b.HasKey("MovieId");
@@ -189,7 +263,6 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreateAt")
-                        .HasColumnOrder(3)
                         .HasComment("Fecha de creacion del registro");
 
                     b.Property<string>("Name")
@@ -202,7 +275,6 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("UpdateAt")
-                        .HasColumnOrder(4)
                         .HasComment("Fecha de actualizacion del registro");
 
                     b.HasKey("PlanId");
@@ -224,7 +296,6 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreateAt")
-                        .HasColumnOrder(4)
                         .HasComment("Fecha de creacion del registro");
 
                     b.Property<string>("Description")
@@ -237,7 +308,7 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("nvarchar(450)")
                         .HasColumnName("Name")
                         .HasColumnOrder(2)
                         .HasComment("Nombre del estado");
@@ -245,12 +316,44 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("UpdateAt")
-                        .HasColumnOrder(5)
                         .HasComment("Fecha de actualizacion del registro");
 
                     b.HasKey("StateId");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("State", "Parametrization");
+
+                    b.HasData(
+                        new
+                        {
+                            StateId = 1,
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Estado Activo",
+                            Name = "Activo"
+                        },
+                        new
+                        {
+                            StateId = 2,
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Estado Inactivo",
+                            Name = "Inactivo"
+                        },
+                        new
+                        {
+                            StateId = 4,
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Estado Restaurado",
+                            Name = "Restaurado"
+                        },
+                        new
+                        {
+                            StateId = 3,
+                            CreateAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Estado Expirado",
+                            Name = "Expirado"
+                        });
                 });
 
             modelBuilder.Entity("Example.Ecommerce.Domain.Entity.CategoryEntity", b =>
@@ -262,7 +365,7 @@ namespace Example.Ecommerce.Infrastructure.Data.Migrations
 
                     b.HasOne("Example.Ecommerce.Domain.Entity.StateEntity", "State")
                         .WithMany("Categories")
-                        .HasForeignKey("StateId")
+                        .HasForeignKey("_stateId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

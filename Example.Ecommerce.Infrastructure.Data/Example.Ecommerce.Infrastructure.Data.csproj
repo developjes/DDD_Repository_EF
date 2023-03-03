@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.14" />
@@ -19,10 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Example.Ecommerce.Domain.Entity\Example.Ecommerce.Domain.Entity.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Seeder\" />
+    <ProjectReference Include="..\Example.Ecommerce.Transversal.Common\Example.Ecommerce.Transversal.Common.csproj" />
   </ItemGroup>
 
 </Project>

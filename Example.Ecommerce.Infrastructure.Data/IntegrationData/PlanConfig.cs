@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
 {
-    public class PlanConfig : IEntityTypeConfiguration<PlanEntity>
+    public sealed class PlanConfig : IEntityTypeConfiguration<PlanEntity>
     {
         public void Configure(EntityTypeBuilder<PlanEntity> builder)
         {
@@ -29,18 +29,6 @@ namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
                 .HasColumnName("Name")
                 .HasComment("Nombre del plan")
                 .IsRequired(required: true);
-
-            builder.Property(c => c.CreateAt)
-                .HasColumnName("CreateAt")
-                .HasComment("Fecha de creacion del registro")
-                .HasColumnOrder(3)
-                .IsRequired(required: true);
-
-            builder.Property(c => c.UpdateAt)
-                .HasColumnName("UpdateAt")
-                .HasComment("Fecha de actualizacion del registro")
-                .HasColumnOrder(4)
-                .IsRequired(required: false);
 
             #endregion
 

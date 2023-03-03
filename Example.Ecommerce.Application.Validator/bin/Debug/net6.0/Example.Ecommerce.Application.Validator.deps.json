@@ -9,6 +9,7 @@
       "Example.Ecommerce.Application.Validator/1.0.0": {
         "dependencies": {
           "Example.Ecommerce.Application.DTO": "1.0.0",
+          "Example.Ecommerce.Transversal.Common": "1.0.0",
           "FluentValidation": "11.5.1"
         },
         "runtime": {
@@ -24,8 +25,19 @@
         }
       },
       "Example.Ecommerce.Application.DTO/1.0.0": {
+        "dependencies": {
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
         "runtime": {
           "Example.Ecommerce.Application.DTO.dll": {}
+        }
+      },
+      "Example.Ecommerce.Transversal.Common/1.0.0": {
+        "dependencies": {
+          "FluentValidation": "11.5.1"
+        },
+        "runtime": {
+          "Example.Ecommerce.Transversal.Common.dll": {}
         }
       }
     }
@@ -44,6 +56,11 @@
       "hashPath": "fluentvalidation.11.5.1.nupkg.sha512"
     },
     "Example.Ecommerce.Application.DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Example.Ecommerce.Transversal.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

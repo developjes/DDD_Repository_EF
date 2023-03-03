@@ -6,9 +6,7 @@ namespace Example.Ecommerce.Application.Interface
 {
     public interface ICategoryApplication
     {
-        Task<Response<IEnumerable<CategoryResponseDto>>> GetAsync();
-        Response<bool> Delete(int categoryId);
-        Response<bool> Insert(CategoryRequestDto categoryDto);
-        Task<Response<bool>> InsertAsync(CategoryRequestDto categoryDto);
+        Task<Response<bool>> Create(CategoryRequestCreateDto categoryDto);
+        Task<Response<bool>> Edit(CategoryRequestUpdateDto categoryDto);
     }
 }

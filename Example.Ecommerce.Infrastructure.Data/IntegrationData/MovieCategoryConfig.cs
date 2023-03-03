@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
 {
-    public class MovieCategoryConfig : IEntityTypeConfiguration<MovieCategoryEntity>
+    public sealed class MovieCategoryConfig : IEntityTypeConfiguration<MovieCategoryEntity>
     {
         public void Configure(EntityTypeBuilder<MovieCategoryEntity> builder)
         {
@@ -35,19 +35,6 @@ namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
                 .HasComment("Id tabla foranea")
                 .HasColumnOrder(3)
                 .IsRequired(required: true);
-
-
-            builder.Property(mc => mc.CreateAt)
-                .HasColumnName("CreateAt")
-                .HasComment("Fecha de creacion del registro")
-                .HasColumnOrder(4)
-                .IsRequired(required: true);
-
-            builder.Property(mc => mc.UpdateAt)
-                .HasColumnName("UpdateAt")
-                .HasComment("Fecha de actualizacion del registro")
-                .HasColumnOrder(5)
-                .IsRequired(required: false);
 
             #endregion
 

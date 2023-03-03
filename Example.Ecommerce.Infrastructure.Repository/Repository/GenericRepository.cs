@@ -1,6 +1,7 @@
 ﻿using Example.Ecommerce.Infrastructure.Interface.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace Example.Ecommerce.Infrastructure.Repository.Repository
 {
@@ -59,6 +60,19 @@ namespace Example.Ecommerce.Infrastructure.Repository.Repository
         public virtual async Task InsertAsync(TEntity tEntity) => await _dbcontext.AddAsync(tEntity);
 
         public virtual async Task InsertAsync(IEnumerable<TEntity> tEntities) => await _dbcontext.AddRangeAsync(tEntities);
+
+        public virtual void SetUpdateFields(object newTEntity, TEntity oldTEntity)
+        {
+            foreach (PropertyInfo? property in oldTEntity!.GetType().GetProperties().Where(p => !p.GetGetMethod()!.GetParameters().Any()))
+            {
+                PropertyInfo? popertyNameNewTentity =
+                    Array.Find(newTEntity.GetType().GetProperties(), pp => pp.Name == property.Name);
+
+                if (popertyNameNewTentity is null) continue;
+
+                property.SetValue(oldTEntity, popertyNameNewTentity.GetValue(newTEntity, null));
+            }
+        }
 
         public virtual void Update(TEntity tEntity) => _dbcontext.Update(tEntity);
 

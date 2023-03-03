@@ -7,9 +7,9 @@ namespace Example.Ecommerce.Domain.Entity
         public int MovieCategoryId { get; set; }
 
         public int MovieId { get; set; }
-        public MovieEntity? Movie { get; set; }
+        public virtual MovieEntity? Movie { get; set; }
 
         public int CategoryId { get; set; }
-        public CategoryEntity? Category { get; set; }
+        public virtual CategoryEntity? Category { get; set; }
     }
 }

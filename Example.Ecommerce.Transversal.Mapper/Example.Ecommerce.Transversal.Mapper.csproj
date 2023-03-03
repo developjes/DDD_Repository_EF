@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Example.Ecommerce.Application.DTO\Example.Ecommerce.Application.DTO.csproj" />
+    <ProjectReference Include="..\Example.Ecommerce.Domain.DTO\Example.Ecommerce.Domain.DTO.csproj" />
     <ProjectReference Include="..\Example.Ecommerce.Domain.Entity\Example.Ecommerce.Domain.Entity.csproj" />
   </ItemGroup>
 

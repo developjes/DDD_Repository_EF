@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9yyT2conLMeKS+Ae6ayZjd17yp1cOqNJwCAL5T2IsIBi0GVyVzME530htlIl0JouQMa7R4Jl0PMTBzkw0AXmoQ==",
+  "dgSpecHash": "alULCloDwByJvPr0jy2N4Sgot7yyjfknpBLL2i6Zj15+D2cdT9sPgYPbTqVhM1kk1oDC3qAjWZUjTX8+exszdw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Application.Validator\\Example.Ecommerce.Application.Validator.csproj",
   "expectedPackageFiles": [

@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "DzokNS4kXC21Y2S3uDr5goT03dJiKZklaF5S6ToDL5j5KrJ+yLMf7Z4lcn8j35q8MPwsjrBc82ZZxij/FqP8Lg==",
+  "dgSpecHash": "nyrc8MNAQXXIkS7DVhfQ9I1tQONL1smEan44uYWtURVUkNtr6atArsm4N2oJlkpljJoLBs4APe1Qfhm41tOBhg==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.Core\\Example.Ecommerce.Domain.Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jsolarte\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\jsolarte\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.14\\microsoft.entityframeworkcore.6.0.14.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.14\\microsoft.entityframeworkcore.abstractions.6.0.14.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.14\\microsoft.entityframeworkcore.analyzers.6.0.14.nupkg.sha512",

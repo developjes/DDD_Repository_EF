@@ -18,44 +18,6 @@ namespace Example.Ecommerce.Service.WebApi.Controllers.v1
 
         public CategoryController(ICategoryApplication categoryApplication) => _categoryApplication = categoryApplication;
 
-        [HttpGet]
-        [AllowAnonymous]
-        [SwaggerOperation( Description = "Get categories", Tags = new[] { "Category" } )]
-        [SwaggerResponse(StatusCodes.Status200OK, "Successful", Type = typeof(Response<IEnumerable<CategoryResponseDto>>))]
-        [ProducesResponseType(500)]
-        [Route("Get")]
-        public async Task<IActionResult> GetAsync()
-        {
-            Response<IEnumerable<CategoryResponseDto>> response = await _categoryApplication.GetAsync();
-
-            if (response.IsSuccess)
-                return Ok(response);
-
-            return BadRequest(response);
-        }
-
-        [HttpDelete]
-        [AllowAnonymous]
-        [SwaggerOperation(
-            Description = "Delete a category",
-            Tags = new[] { "Category" }
-        )]
-        [SwaggerResponse(StatusCodes.Status200OK, "Successful")]
-        [ProducesResponseType(500)]
-        [Route("Delete/{categoryId:int}")]
-        public IActionResult Delete(int categoryId)
-        {
-            if (categoryId < 0)
-                return BadRequest();
-
-            Response<bool> response = _categoryApplication.Delete(categoryId);
-
-            if (response.IsSuccess)
-                return Ok(response);
-
-            return BadRequest(response);
-        }
-
         [HttpPost]
         [AllowAnonymous]
         [SwaggerOperation(
@@ -64,18 +26,32 @@ namespace Example.Ecommerce.Service.WebApi.Controllers.v1
         )]
         [SwaggerResponse(StatusCodes.Status200OK, "Successful")]
         [ProducesResponseType(500)]
-        [Route("Insert")]
-        public IActionResult Insert([FromBody] CategoryRequestDto category)
+        [Route("Create")]
+        public async Task<IActionResult> Create([FromBody] CategoryRequestCreateDto category)
         {
-            if (category is null)
-                return BadRequest();
+            Response<bool> response = await _categoryApplication.Create(category);
 
-            Response<bool> response = _categoryApplication.Insert(category);
+            int statusCode = response.IsSuccess ? StatusCodes.Status201Created : StatusCodes.Status400BadRequest;
 
-            if (response.IsSuccess)
-                return Ok(response);
+            return StatusCode(statusCode, response);
+        }
 
-            return BadRequest(response);
+        [HttpPost]
+        [AllowAnonymous]
+        [SwaggerOperation(
+            Description = "Update a category",
+            Tags = new[] { "Category" }
+        )]
+        [SwaggerResponse(StatusCodes.Status200OK, "Successful")]
+        [ProducesResponseType(500)]
+        [Route("Update")]
+        public async Task<IActionResult> Update([FromBody] CategoryRequestUpdateDto category)
+        {
+            Response<bool> response = await _categoryApplication.Edit(category);
+
+            int statusCode = response.IsSuccess ? StatusCodes.Status201Created : StatusCodes.Status400BadRequest;
+
+            return StatusCode(statusCode, response);
         }
     }
 }

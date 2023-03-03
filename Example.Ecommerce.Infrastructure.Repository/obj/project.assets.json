@@ -2,6 +2,32 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Bogus/34.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Bogus.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentValidation/11.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -744,6 +770,9 @@
       "Example.Ecommerce.Domain.Entity/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Example.Ecommerce.Domain.Entity.dll": {}
         },
@@ -755,7 +784,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Bogus": "34.0.2",
           "Example.Ecommerce.Domain.Entity": "1.0.0",
+          "Example.Ecommerce.Transversal.Common": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.14",
           "Microsoft.EntityFrameworkCore.Abstractions": "6.0.14",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.14",
@@ -781,10 +812,65 @@
         "runtime": {
           "bin/placeholder/Example.Ecommerce.Infrastructure.Interface.dll": {}
         }
+      },
+      "Example.Ecommerce.Transversal.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FluentValidation": "11.5.1"
+        },
+        "compile": {
+          "bin/placeholder/Example.Ecommerce.Transversal.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Example.Ecommerce.Transversal.Common.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "Bogus/34.0.2": {
+      "sha512": "2KQAuMn3fLAQ2r6jeiffZnpv0bi3GCW3iRB2v1KeHIEBu8MNTh9dBlLTZwGvM0pr+9doKkU8L5JgCURmTmT88A==",
+      "type": "package",
+      "path": "bogus/34.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bogus.34.0.2.nupkg.sha512",
+        "bogus.nuspec",
+        "lib/net40/Bogus.dll",
+        "lib/net40/Bogus.xml",
+        "lib/net6.0/Bogus.dll",
+        "lib/net6.0/Bogus.xml",
+        "lib/netstandard1.3/Bogus.dll",
+        "lib/netstandard1.3/Bogus.xml",
+        "lib/netstandard2.0/Bogus.dll",
+        "lib/netstandard2.0/Bogus.xml"
+      ]
+    },
+    "FluentValidation/11.5.1": {
+      "sha512": "0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
+      "type": "package",
+      "path": "fluentvalidation/11.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.5.1.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
     "Microsoft.CSharp/4.5.0": {
       "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
       "type": "package",
@@ -1971,6 +2057,11 @@
       "type": "project",
       "path": "../Example.Ecommerce.Infrastructure.Interface/Example.Ecommerce.Infrastructure.Interface.csproj",
       "msbuildProject": "../Example.Ecommerce.Infrastructure.Interface/Example.Ecommerce.Infrastructure.Interface.csproj"
+    },
+    "Example.Ecommerce.Transversal.Common/1.0.0": {
+      "type": "project",
+      "path": "../Example.Ecommerce.Transversal.Common/Example.Ecommerce.Transversal.Common.csproj",
+      "msbuildProject": "../Example.Ecommerce.Transversal.Common/Example.Ecommerce.Transversal.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {

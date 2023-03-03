@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Example.Ecommerce.Domain.DTO\Example.Ecommerce.Domain.DTO.csproj" />
     <ProjectReference Include="..\Example.Ecommerce.Domain.Interface\Example.Ecommerce.Domain.Interface.csproj" />
+    <ProjectReference Include="..\Example.Ecommerce.Domain.Validator\Example.Ecommerce.Domain.Validator.csproj" />
     <ProjectReference Include="..\Example.Ecommerce.Infrastructure.Interface\Example.Ecommerce.Infrastructure.Interface.csproj" />
   </ItemGroup>
 

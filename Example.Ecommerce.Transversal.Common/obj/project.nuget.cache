@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mVQ5awaas6xy0MFF22v6FrMGE97d/cqpc9oaN872xdvcbFCq85VcJgYNK5gYwQEoBT1uTGKEYDhgMbtDUmD0wg==",
+  "dgSpecHash": "kLPZW9SuRisGRRjYdlieqrIwdEUSt4IqnF0tge+2jWrPD+C+FEUb9dk92EvM/EKAKUmCAtI+kW4Bz7R2U+JmOA==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Transversal.Common\\Example.Ecommerce.Transversal.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jsolarte\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512"
+  ],
   "logs": []
 }

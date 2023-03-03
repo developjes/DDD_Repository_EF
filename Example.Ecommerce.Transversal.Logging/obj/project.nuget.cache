@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dF6qY0wwT65VZyERF1BjzlpZxpqW4D0DUZX7tyo6jTgj8L2dK3dAhFd6Av29VwfNZv0hv39aF05O3n4UJVsrxQ==",
+  "dgSpecHash": "cp0p361RqI5+gnN6x005sWH8GaGER/uI6nPIYadba/y4MI0J2XhqKUW6266kdnW/PxUx5r4bGXtN2dHm5FlAQQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Transversal.Logging\\Example.Ecommerce.Transversal.Logging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jsolarte\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\jsolarte\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",

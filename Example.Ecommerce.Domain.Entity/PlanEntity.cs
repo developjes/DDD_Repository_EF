@@ -6,6 +6,6 @@ namespace Example.Ecommerce.Domain.Entity
     {
         public int PlanId { get; set; }
         public string? Name { get; set; }
-        public ICollection<CategoryEntity>? Categories { get; set; }
+        public virtual ICollection<CategoryEntity>? Categories { get; set; }
     }
 }

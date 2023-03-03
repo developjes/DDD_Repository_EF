@@ -1,10 +1,11 @@
 ﻿using Example.Ecommerce.Domain.Entity;
+using Example.Ecommerce.Infrastructure.Data.Seeder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
 {
-    public class StateConfig : IEntityTypeConfiguration<StateEntity>
+    public sealed class StateConfig : IEntityTypeConfiguration<StateEntity>
     {
         public void Configure(EntityTypeBuilder<StateEntity> builder)
         {
@@ -14,7 +15,7 @@ namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
 
             builder.ToTable(name: "State", schema: "Parametrization");
 
-            #endregion
+            #endregion General cofig
 
             #region Fields
 
@@ -22,6 +23,7 @@ namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
                 .HasColumnName("StateId")
                 .HasComment("Id tabla")
                 .HasColumnOrder(1)
+                .ValueGeneratedOnAdd()
                 .IsRequired(required: true);
 
             builder.Property(s => s.Name)
@@ -37,32 +39,33 @@ namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
                 .HasMaxLength(250)
                 .IsRequired(required: true);
 
-            builder.Property(c => c.CreateAt)
-                .HasColumnName("CreateAt")
-                .HasComment("Fecha de creacion del registro")
-                .HasColumnOrder(4)
-                .IsRequired(required: true);
-
-            builder.Property(c => c.UpdateAt)
-                .HasColumnName("UpdateAt")
-                .HasComment("Fecha de actualizacion del registro")
-                .HasColumnOrder(5)
-                .IsRequired(required: false);
-
-            #endregion
+            #endregion Fields
 
             #region Relationships
 
+            //builder.HasCheckConstraint(
+                //name: "constraint_gender",
+                //sql: "`gender` = 'male' or `gender` = 'female'"
+            //)
+
             builder.HasKey(s => s.StateId);
+
+            builder.HasIndex(s => s.Name).IsUnique();
 
             builder.HasMany(s => s.Categories)
                 .WithOne(c => c.State)
-                .HasForeignKey(c => c.StateId)
+                .HasForeignKey("_stateId")
                 .OnDelete(DeleteBehavior.Restrict);
 
-            #endregion
+            #endregion Relationships
 
-            #endregion
+            #region Seeder
+
+            builder.AddSeeder();
+
+            #endregion Seeder
+
+            #endregion Rule properties
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Example.Ecommerce.Application.DTO.Request;
-using Example.Ecommerce.Application.DTO.Response;
 using Example.Ecommerce.Application.Interface;
-using Example.Ecommerce.Application.Validator.InputValidator;
-using Example.Ecommerce.Domain.Entity;
+using Example.Ecommerce.Application.Validator;
+using Example.Ecommerce.Domain.DTO.Request;
 using Example.Ecommerce.Domain.Interface;
+using Example.Ecommerce.Transversal.Common.Enum;
 using Example.Ecommerce.Transversal.Common.Generic;
+using FluentValidation;
 using FluentValidation.Results;
 
 namespace Example.Ecommerce.Application.Main
@@ -14,100 +15,62 @@ namespace Example.Ecommerce.Application.Main
     {
         private readonly ICategoryDomain _categoryDomain;
         private readonly IMapper _mapper;
-        private readonly CategoryRequestDtoValidator _categoryRequestDtoValidator;
+        private readonly CategoryRequestCreateDtoValidator _categoryRequestCreateDtoValidator;
+        private readonly CategoryRequestUpdateDtoValidator _categoryRequestUpdateDtoValidator;
 
-        public CategoryApplication(ICategoryDomain categoryDomain, IMapper mapper, CategoryRequestDtoValidator categoryRequestDtoValidator) =>
-            (_categoryDomain, _mapper, _categoryRequestDtoValidator) = (categoryDomain, mapper, categoryRequestDtoValidator);
-
-        public async Task<Response<IEnumerable<CategoryResponseDto>>> GetAsync()
+        public CategoryApplication(
+            ICategoryDomain categoryDomain, IMapper mapper,
+            CategoryRequestCreateDtoValidator categoryRequestCreateDtoValidator,
+            CategoryRequestUpdateDtoValidator categoryRequestUpdateDtoValidator
+        )
         {
-            Response<IEnumerable<CategoryResponseDto>> response = new();
-
-            try
-            {
-                IEnumerable<CategoryEntity> categories = await _categoryDomain.GetAsync();
-                response.Data = _mapper.Map<IEnumerable<CategoryResponseDto>>(categories);
-
-                if (response.Data is not null)
-                {
-                    response.IsSuccess = true;
-                    response.Message = "Consulta Exitosa!!!";
-                }
-            }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
-            return response;
+            _mapper = mapper;
+            _categoryDomain = categoryDomain;
+            _categoryRequestCreateDtoValidator = categoryRequestCreateDtoValidator;
+            _categoryRequestUpdateDtoValidator = categoryRequestUpdateDtoValidator;
         }
 
-        public Response<bool> Insert(CategoryRequestDto categoryRequestDto)
+        public async Task<Response<bool>> Create(CategoryRequestCreateDto categoryDto)
         {
             Response<bool> response = new();
-            ValidationResult validationInput = _categoryRequestDtoValidator.Validate(categoryRequestDto);
+            ValidationResult validation = await _categoryRequestCreateDtoValidator.ValidateAsync(categoryDto);
 
-            if (!validationInput.IsValid)
+            if (!validation.IsValid)
             {
-                response.Message = "Parametros no pueden ser vacios";
-                response.ValidationErrors = validationInput.Errors.Select(x => x.ErrorMessage);
+                response.Message = nameof(EnumMessage.VALIDATION_ERROR);
+                response.Errors = validation.Errors;
                 return response;
             }
 
-            try
-            {
-                CategoryEntity category = _mapper.Map<CategoryEntity>(categoryRequestDto);
-                response.Data = _categoryDomain.Insert(category);
+            CategoryRequestCreateDomainDto categoryRequestDomainDto = _mapper.Map<CategoryRequestCreateDomainDto>(categoryDto);
+            (response.Data, EnumMessage message) = await _categoryDomain.Create(categoryRequestDomainDto);
 
-                if (response.Data)
-                {
-                    response.IsSuccess = true;
-                    response.Message = "Registro Exitoso!!!";
-                }
-            }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
+            response.Message = message.ToString();
+
+            if (response.Data) response.IsSuccess = true;
 
             return response;
         }
 
-        public async Task<Response<bool>> InsertAsync(CategoryRequestDto categoryDto)
+        public async Task<Response<bool>> Edit(CategoryRequestUpdateDto categoryDto)
         {
             Response<bool> response = new();
-            try
-            {
-                CategoryEntity category = _mapper.Map<CategoryEntity>(categoryDto);
-                response.Data = await _categoryDomain.InsertAsync(category);
-                if (response.Data)
-                {
-                    response.IsSuccess = true;
-                    response.Message = "Registro Exitoso!!!";
-                }
-            }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
-            return response;
-        }
+            ValidationResult validation = await _categoryRequestUpdateDtoValidator.ValidateAsync(categoryDto);
 
-        public Response<bool> Delete(int categoryId)
-        {
-            Response<bool> response = new();
-            try
+            if (!validation.IsValid)
             {
-                response.Data = _categoryDomain.Delete(categoryId);
-                if (response.Data)
-                {
-                    response.IsSuccess = true;
-                    response.Message = "Eliminación Exitosa!!!";
-                }
+                response.Message = nameof(EnumMessage.VALIDATION_ERROR);
+                response.Errors = validation.Errors;
+                return response;
             }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
+
+            CategoryRequestUpdateDomainDto categoryRequestDomainDto = _mapper.Map<CategoryRequestUpdateDomainDto>(categoryDto);
+            (response.Data, EnumMessage message) = await _categoryDomain.Edit(categoryRequestDomainDto);
+
+            response.Message = message.ToString();
+
+            if (response.Data) response.IsSuccess = true;
+
             return response;
         }
     }

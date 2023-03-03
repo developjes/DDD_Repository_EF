@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eGDXabGjhzsCLaV3lESx3qLwLNNicbZrJRVzlDzYaF/qpTZgQfQndnkm5jy8wLtYqQ9h2pnF0s2rNs5z0DdY8g==",
+  "dgSpecHash": "AI5Veba9NuvYfbKyAxeBeFEUBv3NSw34vAY19KpZtLqmtvouW4AXrkaV4j/+jc4Uh/F/+PUAoXyzhZBdWMHDVw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Infrastructure.Interface\\Example.Ecommerce.Infrastructure.Interface.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jsolarte\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.14\\microsoft.entityframeworkcore.6.0.14.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.14\\microsoft.entityframeworkcore.abstractions.6.0.14.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.14\\microsoft.entityframeworkcore.analyzers.6.0.14.nupkg.sha512",

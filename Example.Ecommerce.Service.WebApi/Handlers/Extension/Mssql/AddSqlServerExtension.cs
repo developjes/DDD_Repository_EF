@@ -1,6 +1,5 @@
 ﻿using Example.Ecommerce.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Mssql
 {
@@ -8,15 +7,16 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Mssql
     {
         public static IServiceCollection AddSqlServer(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<EfContext, EfContext>(opt =>
+            services.AddDbContextPool<EfContext, EfContext>(opt =>
             {
                 opt.EnableSensitiveDataLogging(true);
-                opt.UseSqlServer(configuration.GetConnectionString("NorthwindConnection")!, opt =>
+                opt.UseSqlServer(configuration.GetConnectionString("NorthwindConnection")!, mssql =>
                 {
-                    opt.EnableRetryOnFailure();
-                    opt.MigrationsAssembly(typeof(EfContext).Assembly.FullName);
-                }).LogTo(Console.WriteLine);
-            }, ServiceLifetime.Scoped);
+                    mssql.EnableRetryOnFailure();
+                    mssql.MigrationsAssembly(typeof(EfContext).Assembly.FullName);
+                });
+                //.LogTo(Console.WriteLine)
+            });
 
             return services;
         }

@@ -2,6 +2,44 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AutoMapper/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentValidation/11.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/6.0.14": {
         "type": "package",
         "dependencies": {
@@ -247,9 +285,25 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
+      "Example.Ecommerce.Domain.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Example.Ecommerce.Domain.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Example.Ecommerce.Domain.DTO.dll": {}
+        }
+      },
       "Example.Ecommerce.Domain.Entity/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Example.Ecommerce.Domain.Entity.dll": {}
         },
@@ -261,6 +315,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Example.Ecommerce.Domain.DTO": "1.0.0",
           "Example.Ecommerce.Domain.Entity": "1.0.0"
         },
         "compile": {
@@ -268,6 +323,21 @@
         },
         "runtime": {
           "bin/placeholder/Example.Ecommerce.Domain.Interface.dll": {}
+        }
+      },
+      "Example.Ecommerce.Domain.Validator/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Example.Ecommerce.Domain.DTO": "1.0.0",
+          "Example.Ecommerce.Infrastructure.Interface": "1.0.0",
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Example.Ecommerce.Domain.Validator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Example.Ecommerce.Domain.Validator.dll": {}
         }
       },
       "Example.Ecommerce.Infrastructure.Interface/1.0.0": {
@@ -283,10 +353,130 @@
         "runtime": {
           "bin/placeholder/Example.Ecommerce.Infrastructure.Interface.dll": {}
         }
+      },
+      "Example.Ecommerce.Transversal.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FluentValidation": "11.5.1"
+        },
+        "compile": {
+          "bin/placeholder/Example.Ecommerce.Transversal.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Example.Ecommerce.Transversal.Common.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "AutoMapper/12.0.1": {
+      "sha512": "hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "type": "package",
+      "path": "automapper/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.12.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "FluentValidation/11.5.1": {
+      "sha512": "0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
+      "type": "package",
+      "path": "fluentvalidation/11.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.5.1.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "type": "package",
+      "path": "microsoft.csharp/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/uap10.0.16299/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/uap10.0.16299/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "Microsoft.EntityFrameworkCore/6.0.14": {
       "sha512": "JmEKFlumyqHHK4ixxX+md46dCC1OzaAent/fpixVFVtagS94pAk7q4DUH0xzM3vIzgIgQUmk3c4Dvw3dd48txA==",
       "type": "package",
@@ -610,6 +800,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Example.Ecommerce.Domain.DTO/1.0.0": {
+      "type": "project",
+      "path": "../Example.Ecommerce.Domain.DTO/Example.Ecommerce.Domain.DTO.csproj",
+      "msbuildProject": "../Example.Ecommerce.Domain.DTO/Example.Ecommerce.Domain.DTO.csproj"
+    },
     "Example.Ecommerce.Domain.Entity/1.0.0": {
       "type": "project",
       "path": "../Example.Ecommerce.Domain.Entity/Example.Ecommerce.Domain.Entity.csproj",
@@ -620,15 +815,28 @@
       "path": "../Example.Ecommerce.Domain.Interface/Example.Ecommerce.Domain.Interface.csproj",
       "msbuildProject": "../Example.Ecommerce.Domain.Interface/Example.Ecommerce.Domain.Interface.csproj"
     },
+    "Example.Ecommerce.Domain.Validator/1.0.0": {
+      "type": "project",
+      "path": "../Example.Ecommerce.Domain.Validator/Example.Ecommerce.Domain.Validator.csproj",
+      "msbuildProject": "../Example.Ecommerce.Domain.Validator/Example.Ecommerce.Domain.Validator.csproj"
+    },
     "Example.Ecommerce.Infrastructure.Interface/1.0.0": {
       "type": "project",
       "path": "../Example.Ecommerce.Infrastructure.Interface/Example.Ecommerce.Infrastructure.Interface.csproj",
       "msbuildProject": "../Example.Ecommerce.Infrastructure.Interface/Example.Ecommerce.Infrastructure.Interface.csproj"
+    },
+    "Example.Ecommerce.Transversal.Common/1.0.0": {
+      "type": "project",
+      "path": "../Example.Ecommerce.Transversal.Common/Example.Ecommerce.Transversal.Common.csproj",
+      "msbuildProject": "../Example.Ecommerce.Transversal.Common/Example.Ecommerce.Transversal.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AutoMapper >= 12.0.1",
+      "Example.Ecommerce.Domain.DTO >= 1.0.0",
       "Example.Ecommerce.Domain.Interface >= 1.0.0",
+      "Example.Ecommerce.Domain.Validator >= 1.0.0",
       "Example.Ecommerce.Infrastructure.Interface >= 1.0.0"
     ]
   },
@@ -663,8 +871,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.DTO\\Example.Ecommerce.Domain.DTO.csproj": {
+              "projectPath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.DTO\\Example.Ecommerce.Domain.DTO.csproj"
+            },
             "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.Interface\\Example.Ecommerce.Domain.Interface.csproj": {
               "projectPath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.Interface\\Example.Ecommerce.Domain.Interface.csproj"
+            },
+            "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.Validator\\Example.Ecommerce.Domain.Validator.csproj": {
+              "projectPath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Domain.Validator\\Example.Ecommerce.Domain.Validator.csproj"
             },
             "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Infrastructure.Interface\\Example.Ecommerce.Infrastructure.Interface.csproj": {
               "projectPath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Infrastructure.Interface\\Example.Ecommerce.Infrastructure.Interface.csproj"
@@ -681,6 +895,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[12.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

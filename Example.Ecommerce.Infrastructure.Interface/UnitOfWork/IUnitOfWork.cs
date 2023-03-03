@@ -1,5 +1,4 @@
-﻿using Example.Ecommerce.Domain.Entity;
-using Example.Ecommerce.Infrastructure.Interface.Repository;
+﻿using Example.Ecommerce.Infrastructure.Interface.Repository;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Example.Ecommerce.Infrastructure.Interface.UnitOfWork
@@ -10,5 +9,8 @@ namespace Example.Ecommerce.Infrastructure.Interface.UnitOfWork
         new void Dispose();
         int SaveChanges();
         Task<int> SaveChangesAsync();
+        Task<IDbContextTransaction> BeginTransactionAsync();
+        Task CommitAsync(IDbContextTransaction transaction);
+        Task RollbackAsync(IDbContextTransaction transaction);
     }
 }

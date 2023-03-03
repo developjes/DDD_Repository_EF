@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using Example.Ecommerce.Application.DTO.Request;
-using Example.Ecommerce.Application.DTO.Response;
+using Example.Ecommerce.Domain.DTO.Request;
 using Example.Ecommerce.Domain.Entity;
-using System.Text;
 
 namespace Example.Ecommerce.Transversal.Mapper
 {
@@ -12,8 +11,11 @@ namespace Example.Ecommerce.Transversal.Mapper
 
         private void MapperRules()
         {
-            CreateMap<CategoryEntity, CategoryResponseDto>();
-            CreateMap<CategoryRequestDto, CategoryEntity>();
+            CreateMap<CategoryRequestCreateDto, CategoryRequestCreateDomainDto>();
+            CreateMap<CategoryRequestCreateDomainDto, CategoryEntity>();
+
+            CreateMap<CategoryRequestUpdateDto, CategoryRequestUpdateDomainDto>();
+            CreateMap<CategoryRequestUpdateDomainDto, CategoryEntity>();
         }
     }
 }

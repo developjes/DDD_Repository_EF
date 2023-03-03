@@ -1,4 +1,4 @@
-﻿using Example.Ecommerce.Application.Validator.InputValidator;
+﻿using Example.Ecommerce.Application.Validator;
 
 namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Validator
 {
@@ -6,7 +6,8 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Validator
     {
         public static IServiceCollection AddValidator(this IServiceCollection services)
         {
-            services.AddTransient<CategoryRequestDtoValidator>();
+            services.AddTransient<CategoryRequestCreateDtoValidator>();
+            services.AddTransient<CategoryRequestUpdateDtoValidator>();
 
             return services;
         }

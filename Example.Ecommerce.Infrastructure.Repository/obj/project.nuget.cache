@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "V7CkmttvaN1WnBFxCWZ42cko2QN4WVdjQiH+/HgsyuYy3B3beOMd2H4uS2Kmmd3PiYaOBYtqtk3v/tMsO2joyQ==",
+  "dgSpecHash": "piVb+rvnr1BywohHylDZyW89hCbl2dkOjSAoSpcwsoKM38MLe45gIqrWAn7W6wvAZ1R8oZArC2t5OmoPMaSOrw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsolarte\\OneDrive - Capgemini\\Desktop\\Arquitectura practica\\DDD\\DDD_Repository_EF-main\\Example.Ecommerce\\Example.Ecommerce.Infrastructure.Repository\\Example.Ecommerce.Infrastructure.Repository.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jsolarte\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
+    "C:\\Users\\jsolarte\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\jsolarte\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

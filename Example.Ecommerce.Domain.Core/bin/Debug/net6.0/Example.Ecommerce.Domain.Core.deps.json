@@ -8,13 +8,36 @@
     ".NETCoreApp,Version=v6.0": {
       "Example.Ecommerce.Domain.Core/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Example.Ecommerce.Domain.DTO": "1.0.0",
           "Example.Ecommerce.Domain.Interface": "1.0.0",
+          "Example.Ecommerce.Domain.Validator": "1.0.0",
           "Example.Ecommerce.Infrastructure.Interface": "1.0.0"
         },
         "runtime": {
           "Example.Ecommerce.Domain.Core.dll": {}
         }
       },
+      "AutoMapper/12.0.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.0"
+          }
+        }
+      },
+      "FluentValidation/11.5.1": {
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.5.1.0"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.EntityFrameworkCore/6.0.14": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Abstractions": "6.0.14",
@@ -144,17 +167,39 @@
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "Example.Ecommerce.Domain.DTO/1.0.0": {
+        "dependencies": {
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
+        "runtime": {
+          "Example.Ecommerce.Domain.DTO.dll": {}
+        }
+      },
       "Example.Ecommerce.Domain.Entity/1.0.0": {
+        "dependencies": {
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
         "runtime": {
           "Example.Ecommerce.Domain.Entity.dll": {}
         }
       },
       "Example.Ecommerce.Domain.Interface/1.0.0": {
         "dependencies": {
+          "Example.Ecommerce.Domain.DTO": "1.0.0",
           "Example.Ecommerce.Domain.Entity": "1.0.0"
         },
         "runtime": {
           "Example.Ecommerce.Domain.Interface.dll": {}
+        }
+      },
+      "Example.Ecommerce.Domain.Validator/1.0.0": {
+        "dependencies": {
+          "Example.Ecommerce.Domain.DTO": "1.0.0",
+          "Example.Ecommerce.Infrastructure.Interface": "1.0.0",
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
+        "runtime": {
+          "Example.Ecommerce.Domain.Validator.dll": {}
         }
       },
       "Example.Ecommerce.Infrastructure.Interface/1.0.0": {
@@ -165,6 +210,14 @@
         "runtime": {
           "Example.Ecommerce.Infrastructure.Interface.dll": {}
         }
+      },
+      "Example.Ecommerce.Transversal.Common/1.0.0": {
+        "dependencies": {
+          "FluentValidation": "11.5.1"
+        },
+        "runtime": {
+          "Example.Ecommerce.Transversal.Common.dll": {}
+        }
       }
     }
   },
@@ -173,6 +226,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "path": "automapper/12.0.1",
+      "hashPath": "automapper.12.0.1.nupkg.sha512"
+    },
+    "FluentValidation/11.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
+      "path": "fluentvalidation/11.5.1",
+      "hashPath": "fluentvalidation.11.5.1.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/6.0.14": {
       "type": "package",
@@ -272,6 +346,11 @@
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
+    "Example.Ecommerce.Domain.DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Example.Ecommerce.Domain.Entity/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -282,7 +361,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Example.Ecommerce.Domain.Validator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Example.Ecommerce.Infrastructure.Interface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Example.Ecommerce.Transversal.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

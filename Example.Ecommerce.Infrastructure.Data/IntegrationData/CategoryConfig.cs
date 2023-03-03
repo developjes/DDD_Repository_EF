@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
 {
-    public class CategoryConfig: IEntityTypeConfiguration<CategoryEntity>
+    public sealed class CategoryConfig: IEntityTypeConfiguration<CategoryEntity>
     {
         public void Configure(EntityTypeBuilder<CategoryEntity> builder)
         {
@@ -43,28 +43,18 @@ namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
                 .HasComment("imagen de la categoria")
                 .IsRequired(required: true);
 
-            builder.Property(c => c.StateId)
+            builder.Ignore(s => s.StateId)
+                .Property<int>("_stateId")
                 .HasColumnName("StateId")
                 .HasComment("Id tabla foranea")
                 .HasColumnOrder(5)
+                .IsUnicode(unicode: false)
                 .IsRequired(required: true);
 
             builder.Property(c => c.PlanId)
                 .HasColumnName("PlanId")
                 .HasComment("Id tabla foranea")
                 .HasColumnOrder(6)
-                .IsRequired(required: false);
-
-            builder.Property(c => c.CreateAt)
-                .HasColumnName("CreateAt")
-                .HasComment("Fecha de creacion del registro")
-                .HasColumnOrder(7)
-                .IsRequired(required: true);
-
-            builder.Property(c => c.UpdateAt)
-                .HasColumnName("UpdateAt")
-                .HasComment("Fecha de actualizacion del registro")
-                .HasColumnOrder(8)
                 .IsRequired(required: false);
 
             #endregion
@@ -75,7 +65,7 @@ namespace Example.Ecommerce.Infrastructure.Data.IntegrationData
 
             builder.HasOne(c => c.State)
                 .WithMany(s => s.Categories)
-                .HasForeignKey(c => c.StateId)
+                .HasForeignKey("_stateId")
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(c => c.Plan)
