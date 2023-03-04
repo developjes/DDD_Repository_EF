@@ -6,6 +6,8 @@ namespace Example.Ecommerce.Infrastructure.Interface.UnitOfWork
     public interface IUnitOfWork : IDisposable
     {
         ICategoryRepository CategoryRepository { get; }
+        IMessageRepository MessageRepository { get; }
+
         new void Dispose();
         int SaveChanges();
         Task<int> SaveChangesAsync();

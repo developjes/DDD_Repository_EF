@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
+using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 
@@ -45,10 +47,11 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Swagger
                 c.EnableAnnotations();
                 c.IgnoreObsoleteActions();
                 c.IgnoreObsoleteProperties();
+                c.AddFluentValidationRulesScoped(ServiceLifetime.Scoped);
+                //c.ExampleFilters();
             });
-
-            services.AddFluentValidationRulesToSwagger();
             services.AddLogging(builder => builder.AddConsole());
+            //services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 
             return services;
         }

@@ -4,10 +4,12 @@ C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Rep
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.DTO.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.Entity.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.Interface.dll
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.Validator.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Infrastructure.Interface.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Transversal.Common.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.DTO.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.Interface.pdb
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.Validator.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Infrastructure.Interface.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.Entity.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Transversal.Common.pdb
@@ -21,5 +23,3 @@ C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Rep
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\obj\Debug\net6.0\refint\Example.Ecommerce.Domain.Core.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\obj\Debug\net6.0\Example.Ecommerce.Domain.Core.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\obj\Debug\net6.0\ref\Example.Ecommerce.Domain.Core.dll
-C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.Validator.dll
-C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Domain.Core\bin\Debug\net6.0\Example.Ecommerce.Domain.Validator.pdb

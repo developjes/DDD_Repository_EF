@@ -10,8 +10,10 @@ using Example.Ecommerce.Service.WebApi.Handlers.Extension.Swagger;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Validator;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Versioning;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Watch;
+using Example.Ecommerce.Service.WebApi.Handlers.Extension.XML;
 using Example.Ecommerce.Service.WebApi.Handlers.Middleware;
 using HealthChecks.UI.Client;
+using MicroElements.Swashbuckle.FluentValidation;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Text.Json.Serialization;
@@ -31,6 +33,8 @@ builder.Services.AddControllers(x =>
 {
     x.Filters.AddService(typeof(AntiforgeryCookieResultFilter));
     x.EnableEndpointRouting = false;
+    x.ModelMetadataDetailsProviders.Clear();
+    x.ModelValidatorProviders.Clear();
 })
 .AddJsonOptions(options =>
 {
@@ -108,8 +112,15 @@ builder.Services.AddWatchDog(builder.Configuration);
 
 #endregion
 
-// Configure the HTTP request pipeline.
+#region XmlInput
 
+builder.Services.AddXmlInput();
+
+#endregion
+
+//builder.Services.AddSwaggerExamplesFromAssemblies()
+
+// Configure the HTTP request pipeline.
 WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -119,6 +130,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
+        c.DisplayRequestDuration();
+        c.DisplayOperationId();
+        c.EnableValidator();
+        c.EnableFilter();
+        c.EnableDeepLinking();
+
         // build a swagger endpoint for each discovered API version
         IApiVersionDescriptionProvider provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
         for (int i = 0; i < provider.ApiVersionDescriptions.Count; i++)
@@ -135,6 +152,7 @@ if (app.Environment.IsDevelopment())
         c.DocExpansion(DocExpansion.List);
         c.InjectStylesheet("/css/SwaggerCustom.css");
     });
+    app.UseMvc().UseScopedSwagger();
 }
 
 app.UseWatchDogExceptionLogger();

@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using Example.Ecommerce.Domain.DTO.Request;
+using Example.Ecommerce.Domain.DTO.Request.Category;
 using Example.Ecommerce.Domain.Entity;
 using Example.Ecommerce.Domain.Interface;
 using Example.Ecommerce.Domain.Validator.Category;
 using Example.Ecommerce.Infrastructure.Interface.UnitOfWork;
 using Example.Ecommerce.Transversal.Common.Enum;
-using System.ComponentModel;
 
 namespace Example.Ecommerce.Domain.Core
 {
@@ -16,23 +15,24 @@ namespace Example.Ecommerce.Domain.Core
 
         public CategoryDomain(IUnitOfWork unitOfWork, IMapper mapper) => (_unitOfWork, _mapper) = (unitOfWork, mapper);
 
-        public async Task<(bool, EnumMessage)> Create(CategoryRequestCreateDomainDto categoryRequestDomainDto)
+        public async Task<(int?, EnumMessage)> Create(CategoryRequestCreateDomainDto categoryRequestDomainDto)
         {
             try
             {
                 // Validaciones de negocio con mensajeria manual
                 (bool responseValidation, EnumMessage message) = CategoryValidator.CreateCategory(categoryRequestDomainDto);
 
-                if (!responseValidation) return (responseValidation, message);
+                if (!responseValidation) return (null, message);
 
                 // logica de negocio
                 CategoryEntity categoryEntity = _mapper.Map<CategoryEntity>(categoryRequestDomainDto);
                 await _unitOfWork.CategoryRepository.InsertAsync(categoryEntity);
 
                 // retorno de proceso bool y cod mensajeria
-                return (await _unitOfWork.SaveChangesAsync() > 0, EnumMessage.INSERT_SUCCESS);
+                bool isSave = await _unitOfWork.SaveChangesAsync() > 0;
+                return (categoryEntity.CategoryId, isSave ? EnumMessage.INSERT_SUCCESS : EnumMessage.INSERT_ERROR);
             }
-            catch (Exception) { return (false, EnumMessage.INSERT_ERROR); }
+            catch (Exception) { return (null, EnumMessage.INSERT_ERROR); }
         }
 
         public async Task<(bool, EnumMessage)> Edit(CategoryRequestUpdateDomainDto categoryRequestDomainDto)
@@ -50,8 +50,8 @@ namespace Example.Ecommerce.Domain.Core
                 _unitOfWork.CategoryRepository.SetUpdateFields(categoryRequestDomainDto, categoryEntity!);
 
                 // retorno de proceso bool y cod mensajeria
-                bool responseStatus = await _unitOfWork.SaveChangesAsync() > 0;
-                return (responseStatus, responseStatus ? EnumMessage.UPDATE_SUCCESS : EnumMessage.UPDATE_ERROR);
+                await _unitOfWork.SaveChangesAsync();
+                return (true, EnumMessage.UPDATE_SUCCESS);
             }
             catch (Exception) { return (false, EnumMessage.UPDATE_ERROR); }
         }

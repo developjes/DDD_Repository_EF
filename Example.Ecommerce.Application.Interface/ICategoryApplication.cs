@@ -6,7 +6,7 @@ namespace Example.Ecommerce.Application.Interface
 {
     public interface ICategoryApplication
     {
-        Task<Response<bool>> Create(CategoryRequestCreateDto categoryDto);
-        Task<Response<bool>> Edit(CategoryRequestUpdateDto categoryDto);
+        Task<Response<int?>> Create(CategoryRequestCreateDto categoryDto);
+        Task<Response<bool>> Edit(int categoryId, CategoryRequestUpdateDto categoryDto);
     }
 }

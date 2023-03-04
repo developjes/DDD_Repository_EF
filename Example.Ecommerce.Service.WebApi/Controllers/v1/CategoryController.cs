@@ -1,5 +1,4 @@
 ﻿using Example.Ecommerce.Application.DTO.Request;
-using Example.Ecommerce.Application.DTO.Response;
 using Example.Ecommerce.Application.Interface;
 using Example.Ecommerce.Transversal.Common.Generic;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +11,7 @@ namespace Example.Ecommerce.Service.WebApi.Controllers.v1
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [ApiVersion("1.0", Deprecated = false)]
+    [ApiExplorerSettings(IgnoreApi = false)]
     public class CategoryController : Controller
     {
         private readonly ICategoryApplication _categoryApplication;
@@ -20,36 +20,32 @@ namespace Example.Ecommerce.Service.WebApi.Controllers.v1
 
         [HttpPost]
         [AllowAnonymous]
-        [SwaggerOperation(
-            Description = "Create a new category",
-            Tags = new[] { "Category" }
-        )]
-        [SwaggerResponse(StatusCodes.Status200OK, "Successful")]
+        [SwaggerOperation(Description = "Create a new category", Tags = new[] { "Category" })]
+        [SwaggerResponse(StatusCodes.Status201Created, "Successful")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, "BadRequest")]
         [ProducesResponseType(500)]
         [Route("Create")]
         public async Task<IActionResult> Create([FromBody] CategoryRequestCreateDto category)
         {
-            Response<bool> response = await _categoryApplication.Create(category);
+            Response<int?> response = await _categoryApplication.Create(category);
 
             int statusCode = response.IsSuccess ? StatusCodes.Status201Created : StatusCodes.Status400BadRequest;
 
             return StatusCode(statusCode, response);
         }
 
-        [HttpPost]
+        [HttpPut]
         [AllowAnonymous]
-        [SwaggerOperation(
-            Description = "Update a category",
-            Tags = new[] { "Category" }
-        )]
-        [SwaggerResponse(StatusCodes.Status200OK, "Successful")]
+        [SwaggerOperation(Description = "Update a category", Tags = new[] { "Category" })]
+        [SwaggerResponse(StatusCodes.Status204NoContent, "Successful")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, "BadRequest")]
         [ProducesResponseType(500)]
-        [Route("Update")]
-        public async Task<IActionResult> Update([FromBody] CategoryRequestUpdateDto category)
+        [Route("{categoryId:int}/Update")]
+        public async Task<IActionResult> Update(int categoryId, [FromBody] CategoryRequestUpdateDto category)
         {
-            Response<bool> response = await _categoryApplication.Edit(category);
+            Response<bool> response = await _categoryApplication.Edit(categoryId, category);
 
-            int statusCode = response.IsSuccess ? StatusCodes.Status201Created : StatusCodes.Status400BadRequest;
+            int statusCode = response.IsSuccess ? StatusCodes.Status204NoContent : StatusCodes.Status400BadRequest;
 
             return StatusCode(statusCode, response);
         }

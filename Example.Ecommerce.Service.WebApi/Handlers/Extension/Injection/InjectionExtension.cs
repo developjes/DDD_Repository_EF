@@ -26,6 +26,9 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Injection
             services.AddScoped<ICategoryDomain, CategoryDomain>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
 
+            services.AddScoped<IMessageDomain, MessageDomain>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+
             return services;
         }
     }

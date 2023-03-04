@@ -10,13 +10,20 @@ namespace Example.Ecommerce.Application.Validator
 
         private void ValidatorRules()
         {
-            RuleFor(c => c).NotNull().NotEmpty();
-            RuleFor(c => c.Name).NotNull().NotEmpty();
-            RuleFor(c => c.Description).NotNull().NotEmpty();
-            RuleFor(c => c.Picture).NotNull().NotEmpty();
-            RuleFor(c => c.PlanId).Must(pId => pId > 0)
-                .When(c => c.PlanId is not null).WithMessage(FluentValidationMessage.VALUE_MUST_MAJOR_ZERO);
-            RuleFor(c => c.StateId).NotNull().NotEmpty().IsInEnum();
+            RuleFor(c => c).Cascade(CascadeMode.Stop)
+                .NotNull().NotEmpty();
+            RuleFor(c => c.Name).Cascade(CascadeMode.Stop)
+                .NotNull().NotEmpty();
+            RuleFor(c => c.Description).Cascade(CascadeMode.Stop)
+                .NotNull().NotEmpty();
+            RuleFor(c => c.Picture).Cascade(CascadeMode.Stop)
+                .NotNull().NotEmpty();
+            RuleFor(c => c.PlanId).Cascade(CascadeMode.Stop)
+                .Must(pId => pId > 0)
+                .When(c => c.PlanId is not null)
+                .WithMessage(FluentValidationMessage.VALUE_MUST_MAJOR_ZERO);
+            RuleFor(c => c.StateId).Cascade(CascadeMode.Stop)
+                .NotNull().NotEmpty().IsInEnum();
         }
     }
 }

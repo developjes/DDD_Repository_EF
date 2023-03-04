@@ -10,14 +10,16 @@ namespace Example.Ecommerce.Infrastructure.Repository.UnitOfWork
     {
         protected readonly EfContext _context;
         private bool _disposed;
-        private readonly ICategoryRepository _categoryRepository;
 
-        public UnitOfWork(EfContext context) =>
-            (_context, _categoryRepository) = (context, new CategoryRepository(context));
+        private readonly ICategoryRepository _categoryRepository = null!;
+        private readonly IMessageRepository _messageRepository = null!;
+
+        public UnitOfWork(EfContext context) => _context = context;
 
         #region Repositories
 
         public ICategoryRepository CategoryRepository { get { return _categoryRepository ?? new CategoryRepository(_context); } }
+        public IMessageRepository MessageRepository { get { return _messageRepository ?? new MessageRepository(_context); } }
 
         #endregion
 

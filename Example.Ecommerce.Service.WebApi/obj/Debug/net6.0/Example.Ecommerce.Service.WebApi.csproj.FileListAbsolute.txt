@@ -23,6 +23,8 @@ C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Rep
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Dapper.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\DnsClient.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Fractions.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Google.Protobuf.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Humanizer.dll
@@ -86,12 +88,15 @@ C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Rep
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Npgsql.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Prometheus.NetCore.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Prometheus.NetStandard.dll
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Scrutor.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\SharpCompress.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Snappier.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\SQLitePCLRaw.core.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\SQLitePCLRaw.provider.e_sqlite3.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -153,6 +158,7 @@ C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Rep
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.DTO.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.Entity.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.Interface.dll
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.Validator.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Infrastructure.Data.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Infrastructure.Interface.dll
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Infrastructure.Repository.dll
@@ -171,6 +177,7 @@ C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Rep
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.DTO.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.Entity.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.Interface.pdb
+C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.Validator.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Infrastructure.Data.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Transversal.Common.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\obj\Debug\net6.0\Example.Ecommerce.Service.WebApi.csproj.AssemblyReference.cache
@@ -195,5 +202,3 @@ C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Rep
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\obj\Debug\net6.0\Example.Ecommerce.Service.WebApi.pdb
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\obj\Debug\net6.0\Example.Ecommerce.Service.WebApi.genruntimeconfig.cache
 C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\obj\Debug\net6.0\ref\Example.Ecommerce.Service.WebApi.dll
-C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.Validator.dll
-C:\Users\jsolarte\OneDrive - Capgemini\Desktop\Arquitectura practica\DDD\DDD_Repository_EF-main\Example.Ecommerce\Example.Ecommerce.Service.WebApi\bin\Debug\net6.0\Example.Ecommerce.Domain.Validator.pdb

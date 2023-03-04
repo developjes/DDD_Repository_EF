@@ -28,7 +28,7 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Swagger
                 Version = description.ApiVersion.ToString(),
                 Title = "Example company Services API Market",
                 Description = "A simple example ASP.NET Core Web API.",
-                TermsOfService = new("https://pacagroup.com/terms"),
+                TermsOfService = new("https://example.com/terms"),
                 Contact = new()
                 {
                     Name = "Jhon Eddier Solarte V.",
@@ -43,9 +43,7 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Swagger
             };
 
             if (description.IsDeprecated)
-            {
                 info.Description = $"{info.Description} - Esta versión de la API ha quedado obsoleta.";
-            }
 
             return info;
         }

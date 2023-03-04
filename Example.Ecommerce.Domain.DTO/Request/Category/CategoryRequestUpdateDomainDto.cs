@@ -1,9 +1,10 @@
 ﻿using Example.Ecommerce.Transversal.Common.Enum;
 
-namespace Example.Ecommerce.Domain.DTO.Request
+namespace Example.Ecommerce.Domain.DTO.Request.Category
 {
-    public class CategoryRequestCreateDomainDto
+    public class CategoryRequestUpdateDomainDto
     {
+        public int CategoryId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Picture { get; set; }

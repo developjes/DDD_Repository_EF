@@ -1,4 +1,4 @@
-﻿using Example.Ecommerce.Domain.DTO.Request;
+﻿using Example.Ecommerce.Domain.DTO.Request.Category;
 using Example.Ecommerce.Domain.Entity;
 using Example.Ecommerce.Infrastructure.Interface.UnitOfWork;
 using Example.Ecommerce.Transversal.Common.Enum;
