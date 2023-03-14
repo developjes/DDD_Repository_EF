@@ -11,12 +11,10 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.XML
             services.AddControllers(options =>
             {
                 options.RespectBrowserAcceptHeader = true;
-                options.Filters.Add(new ProducesAttribute("text/xml"));
+                //options.Filters.Add(new ProducesAttribute("text/xml"));
                 options.InputFormatters.Add(new XmlSerializerInputFormatter(options));
-                options.OutputFormatters.Add(new XmlSerializerOutputFormatter(new XmlWriterSettings
-                {
-                        OmitXmlDeclaration = false
-                }));
+                options.OutputFormatters.Add(
+                    new XmlSerializerOutputFormatter(new XmlWriterSettings { OmitXmlDeclaration = false }));
             })
             .AddXmlSerializerFormatters()
             .AddXmlDataContractSerializerFormatters();

@@ -1,4 +1,5 @@
 ﻿using Example.Ecommerce.Transversal.Common.Enum;
+using Microsoft.AspNetCore.Http;
 
 namespace Example.Ecommerce.Application.DTO.Request
 {

@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Example.Ecommerce.Domain.DTO.Request.Category;
+using Example.Ecommerce.Domain.DTO.Response.Category;
 using Example.Ecommerce.Domain.Entity;
 using Example.Ecommerce.Domain.Interface;
 using Example.Ecommerce.Domain.Validator.Category;
 using Example.Ecommerce.Infrastructure.Interface.UnitOfWork;
 using Example.Ecommerce.Transversal.Common.Enum;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Example.Ecommerce.Domain.Core
 {
@@ -35,7 +37,7 @@ namespace Example.Ecommerce.Domain.Core
             catch (Exception) { return (null, EnumMessage.INSERT_ERROR); }
         }
 
-        public async Task<(bool, EnumMessage)> Edit(CategoryRequestUpdateDomainDto categoryRequestDomainDto)
+        public async Task<(bool, EnumMessage)> Patch(CategoryRequestUpdateDomainDto categoryRequestDomainDto)
         {
             try
             {
@@ -47,13 +49,26 @@ namespace Example.Ecommerce.Domain.Core
 
                 // logica de negocio
                 CategoryEntity? categoryEntity = _unitOfWork.CategoryRepository.GetById(categoryRequestDomainDto.CategoryId);
-                _unitOfWork.CategoryRepository.SetUpdateFields(categoryRequestDomainDto, categoryEntity!);
+                _unitOfWork.CategoryRepository.Patch(categoryRequestDomainDto, categoryEntity!);
 
                 // retorno de proceso bool y cod mensajeria
                 await _unitOfWork.SaveChangesAsync();
                 return (true, EnumMessage.UPDATE_SUCCESS);
             }
             catch (Exception) { return (false, EnumMessage.UPDATE_ERROR); }
+        }
+
+        public async Task<(CategoryResponseDomainDto?, EnumMessage)> GetById(int categoryId)
+        {
+            CategoryResponseDomainDto? category = _mapper.Map<CategoryResponseDomainDto>(
+                await _unitOfWork.CategoryRepository.GetOneAsync(
+                    filter: c => c.CategoryId == categoryId,
+                    includeProperties: "State,Plan",
+                    asTracking: false
+                ));
+
+            return category is not null ?
+                (category, EnumMessage.UPDATE_SUCCESS) : (null, EnumMessage.UPDATE_ERROR);
         }
 
         public Task<(bool, EnumMessage)> Remove(int categoryId)

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Example.Ecommerce.Domain.DTO/1.0.0": {
         "dependencies": {
+          "Example.Ecommerce.Domain.Entity": "1.0.0",
           "Example.Ecommerce.Transversal.Common": "1.0.0"
         },
         "runtime": {
@@ -20,6 +21,14 @@
             "assemblyVersion": "11.0.0.0",
             "fileVersion": "11.5.1.0"
           }
+        }
+      },
+      "Example.Ecommerce.Domain.Entity/1.0.0": {
+        "dependencies": {
+          "Example.Ecommerce.Transversal.Common": "1.0.0"
+        },
+        "runtime": {
+          "Example.Ecommerce.Domain.Entity.dll": {}
         }
       },
       "Example.Ecommerce.Transversal.Common/1.0.0": {
@@ -44,6 +53,11 @@
       "sha512": "sha512-0h1Q5lNOLLyYTWMJmyNoMqhY4CBRvvUWvJP1R4F2CnmmzuWwvB0A8aVmw5+lOuwYnwUwCRrdeMLbc81F38ahNQ==",
       "path": "fluentvalidation/11.5.1",
       "hashPath": "fluentvalidation.11.5.1.nupkg.sha512"
+    },
+    "Example.Ecommerce.Domain.Entity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Example.Ecommerce.Transversal.Common/1.0.0": {
       "type": "project",

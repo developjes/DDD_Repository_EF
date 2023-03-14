@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Request\Category\Read\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Example.Ecommerce.Domain.Entity\Example.Ecommerce.Domain.Entity.csproj" />
     <ProjectReference Include="..\Example.Ecommerce.Transversal.Common\Example.Ecommerce.Transversal.Common.csproj" />
   </ItemGroup>
 

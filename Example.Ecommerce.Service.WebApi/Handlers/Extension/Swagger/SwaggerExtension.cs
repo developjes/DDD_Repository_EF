@@ -1,9 +1,11 @@
-﻿using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using MySqlX.XDevAPI;
 using Swashbuckle.AspNetCore.Filters;
-using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 
@@ -34,24 +36,25 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Swagger
                     BearerFormat = "JWT",
                     Reference = new() { Id = JwtBearerDefaults.AuthenticationScheme, Type = ReferenceType.SecurityScheme }
                 };
-
                 c.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement() {
-                    { securityScheme, new List<string>() }
-                });
-
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement() { { securityScheme, new List<string>() }});
+                c.UseInlineDefinitionsForEnums();
+                c.UseOneOfForPolymorphism();
+                c.UseAllOfToExtendReferenceSchemas();
                 c.CustomSchemaIds(x => x.FullName);
                 c.SupportNonNullableReferenceTypes();
                 c.DescribeAllParametersInCamelCase();
-                c.EnableAnnotations();
+                c.EnableAnnotations(enableAnnotationsForInheritance: true, enableAnnotationsForPolymorphism: true);
                 c.IgnoreObsoleteActions();
                 c.IgnoreObsoleteProperties();
-                c.AddFluentValidationRulesScoped(ServiceLifetime.Scoped);
-                //c.ExampleFilters();
+                c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+                c.ExampleFilters();
+                c.OrderActionsBy((apiDesc) => $"{apiDesc.ActionDescriptor.RouteValues["controller"]}_{apiDesc.HttpMethod}");
+                c.CustomOperationIds(apiDesc => apiDesc.TryGetMethodInfo(out MethodInfo methodInfo) ? methodInfo.Name : null);
+                c.OperationFilter<SwaggerFormMultipartFilter>();
             });
             services.AddLogging(builder => builder.AddConsole());
-            //services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
+            services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 
             return services;
         }

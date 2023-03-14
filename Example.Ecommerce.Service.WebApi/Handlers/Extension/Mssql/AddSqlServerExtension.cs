@@ -1,5 +1,7 @@
 ﻿using Example.Ecommerce.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Mssql
 {
@@ -7,8 +9,9 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Mssql
     {
         public static IServiceCollection AddSqlServer(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContextPool<EfContext, EfContext>(opt =>
+            services.AddDbContextPool<EfContext>(opt =>
             {
+                //opt.UseInMemoryDatabase("NorthwindConnection-in-memory");
                 opt.EnableSensitiveDataLogging(true);
                 opt.UseSqlServer(configuration.GetConnectionString("NorthwindConnection")!, mssql =>
                 {

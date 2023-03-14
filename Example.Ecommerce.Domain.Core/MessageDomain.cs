@@ -14,15 +14,10 @@ namespace Example.Ecommerce.Domain.Core
 
         public MessageDomain(IUnitOfWork unitOfWork, IMapper mapper) => (_unitOfWork, _mapper) = (unitOfWork, mapper);
 
-        public async Task<MessageResponseDomainDto> GetByKey(string messageKey)
+        public async Task<MessageResponseDomainDto> GetByKey(EnumMessage messageKey)
         {
-            bool isEnum = Enum.TryParse(typeof(EnumMessage), messageKey, out object? convertedEnum);
-
-            if (!isEnum && convertedEnum is null)
-                throw new InvalidOperationException($"{messageKey} is not an underlying value of the your Enum enumeration.");
-
-            MessageEntity? message =
-                await _unitOfWork.MessageRepository.GetOneAsync(m => m.Key == messageKey, asTracking: false);
+            MessageEntity? message = await _unitOfWork.MessageRepository
+                .GetOneAsync(m => m.Key == messageKey.ToString(), asTracking: false);
 
             if (message is null)
                 throw new InvalidOperationException($"{messageKey} not found.");

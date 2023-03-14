@@ -12,15 +12,15 @@ namespace Example.Ecommerce.Service.WebApi.Handlers.Extension.Validator
             services.AddTransient<CategoryRequestCreateDtoValidator>();
             services.AddTransient<CategoryRequestUpdateDtoValidator>();
 
-            services.AddFluentValidationAutoValidation(x => x.DisableDataAnnotationsValidation = true);
+            services.AddFluentValidationAutoValidation(x =>  x.DisableDataAnnotationsValidation = true);
             services.AddFluentValidationClientsideAdapters();
+            services.AddValidatorsFromAssemblyContaining<Program>();
             services.AddFluentValidationRulesToSwagger(x =>
             {
                 x.SetNotNullableIfMinLengthGreaterThenZero = true;
                 x.UseAllOffForMultipleRules = true;
+                x.SetFluentValidationCompatibility();
             });
-
-            services.AddValidatorsFromAssemblyContaining<Program>(lifetime: ServiceLifetime.Scoped);
 
             return services;
         }

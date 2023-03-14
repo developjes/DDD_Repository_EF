@@ -1,7 +1,10 @@
-﻿using Example.Ecommerce.Infrastructure.Interface.Repository;
+﻿using Example.Ecommerce.Infrastructure.Data.Context;
+using Example.Ecommerce.Infrastructure.Interface.Repository;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Security.Principal;
 
 namespace Example.Ecommerce.Infrastructure.Repository.Repository
 {
@@ -61,16 +64,22 @@ namespace Example.Ecommerce.Infrastructure.Repository.Repository
 
         public virtual async Task InsertAsync(IEnumerable<TEntity> tEntities) => await _dbcontext.AddRangeAsync(tEntities);
 
-        public virtual void SetUpdateFields(object newTEntity, TEntity oldTEntity)
+        public virtual void Patch(object patchEntity, TEntity dbEntity)
         {
-            foreach (PropertyInfo? property in oldTEntity!.GetType().GetProperties().Where(p => !p.GetGetMethod()!.GetParameters().Any()))
+            if (patchEntity is null)
+                throw new ArgumentNullException(nameof(patchEntity), $"{nameof(patchEntity)} cannot be null.");
+
+            if (dbEntity is null)
+                throw new ArgumentNullException(nameof(dbEntity), $"{nameof(dbEntity)} cannot be null.");
+
+            foreach (PropertyInfo? dbProperty in
+                dbEntity!.GetType().GetProperties().Where(p => !p.GetGetMethod()!.GetParameters().Any()))
             {
-                PropertyInfo? popertyNameNewTentity =
-                    Array.Find(newTEntity.GetType().GetProperties(), pp => pp.Name == property.Name);
+                PropertyInfo? propertyNameNewTentity =
+                    Array.Find(patchEntity.GetType().GetProperties(), pp => pp.Name == dbProperty.Name);
 
-                if (popertyNameNewTentity is null) continue;
-
-                property.SetValue(oldTEntity, popertyNameNewTentity.GetValue(newTEntity, null));
+                if (propertyNameNewTentity is not null && (propertyNameNewTentity.GetType().Name == dbProperty.GetType().Name))
+                    dbProperty.SetValue(dbEntity, propertyNameNewTentity.GetValue(patchEntity, null));
             }
         }
 

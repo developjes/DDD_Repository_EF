@@ -10,11 +10,11 @@ using Example.Ecommerce.Service.WebApi.Handlers.Extension.Swagger;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Validator;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Versioning;
 using Example.Ecommerce.Service.WebApi.Handlers.Extension.Watch;
-using Example.Ecommerce.Service.WebApi.Handlers.Extension.XML;
 using Example.Ecommerce.Service.WebApi.Handlers.Middleware;
 using HealthChecks.UI.Client;
-using MicroElements.Swashbuckle.FluentValidation;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Text.Json.Serialization;
 using WatchDog;
@@ -36,13 +36,26 @@ builder.Services.AddControllers(x =>
     x.ModelMetadataDetailsProviders.Clear();
     x.ModelValidatorProviders.Clear();
 })
-.AddJsonOptions(options =>
+.AddJsonOptions(opt =>
 {
-    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-    options.JsonSerializerOptions.Converters.Add(new DateTimeConverter());
-    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-    options.JsonSerializerOptions.Converters.Add(new ByteArrayConverter());
+    opt.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    opt.JsonSerializerOptions.Converters.Add(new DateTimeConverter());
+    opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    opt.JsonSerializerOptions.Converters.Add(new ByteArrayConverter());
+    opt.JsonSerializerOptions.IncludeFields = true;
 });
+
+/*
+builder.Services.Configure<FormOptions>(opt =>
+{
+    opt.KeyLengthLimit = int.MaxValue;
+    opt.ValueCountLimit = int.MaxValue;
+    opt.ValueLengthLimit = int.MaxValue;
+    opt.MultipartHeadersLengthLimit = int.MaxValue;
+});
+*/
+builder.Services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
+builder.Services.Configure<IISServerOptions>(options => options.AllowSynchronousIO = true);
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -61,12 +74,6 @@ builder.Services.AddAuthentication(builder.Configuration);
 #region Versioning
 
 builder.Services.AddVersioning();
-
-#endregion
-
-#region Swagger
-
-builder.Services.AddSwagger();
 
 #endregion
 
@@ -114,11 +121,15 @@ builder.Services.AddWatchDog(builder.Configuration);
 
 #region XmlInput
 
-builder.Services.AddXmlInput();
+//builder.Services.AddXmlInput()
 
 #endregion
 
-//builder.Services.AddSwaggerExamplesFromAssemblies()
+#region Swagger
+
+builder.Services.AddSwagger();
+
+#endregion
 
 // Configure the HTTP request pipeline.
 WebApplication app = builder.Build();
@@ -127,15 +138,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseStaticFiles();
     app.UseDeveloperExceptionPage();
-    app.UseSwagger();
+    app.UseSwagger(c => c.SerializeAsV2 = false);
     app.UseSwaggerUI(c =>
     {
-        c.DisplayRequestDuration();
-        c.DisplayOperationId();
-        c.EnableValidator();
-        c.EnableFilter();
-        c.EnableDeepLinking();
-
         // build a swagger endpoint for each discovered API version
         IApiVersionDescriptionProvider provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
         for (int i = 0; i < provider.ApiVersionDescriptions.Count; i++)
@@ -144,16 +149,23 @@ if (app.Environment.IsDevelopment())
             c.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
         }
 
+        c.DocumentTitle = "My Swagger UI";
+        c.RoutePrefix = "api-docs";
         c.DisplayRequestDuration();
+        c.DisplayOperationId();
+        c.EnableFilter();
+        c.EnableDeepLinking();
         c.ShowExtensions();
         c.ShowCommonExtensions();
         c.EnableValidator();
         c.DefaultModelsExpandDepth(-1);
         c.DocExpansion(DocExpansion.List);
         c.InjectStylesheet("/css/SwaggerCustom.css");
+        c.SupportedSubmitMethods(
+            SubmitMethod.Get, SubmitMethod.Post, SubmitMethod.Put, SubmitMethod.Patch, SubmitMethod.Delete);
     });
-    app.UseMvc().UseScopedSwagger();
 }
+else app.UseHsts();
 
 app.UseWatchDogExceptionLogger();
 

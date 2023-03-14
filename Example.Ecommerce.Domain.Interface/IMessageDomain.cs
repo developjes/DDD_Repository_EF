@@ -5,6 +5,6 @@ namespace Example.Ecommerce.Domain.Interface
 {
     public interface IMessageDomain
     {
-        Task<MessageResponseDomainDto> GetByKey(string messageKey);
+        Task<MessageResponseDomainDto> GetByKey(EnumMessage messageKey);
     }
 }

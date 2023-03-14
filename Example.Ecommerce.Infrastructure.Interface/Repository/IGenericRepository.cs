@@ -22,7 +22,7 @@ namespace Example.Ecommerce.Infrastructure.Interface.Repository
         void Insert(IEnumerable<TEntity> tEntities);
         Task InsertAsync(TEntity tEntity);
         Task InsertAsync(IEnumerable<TEntity> tEntities);
-        void SetUpdateFields(object newTEntity, TEntity oldTEntity);
+        void Patch(object patchEntity, TEntity dbEntity);
         void Update(TEntity tEntity);
         void Update(IEnumerable<TEntity> tEntitites);
         public void Delete(object id);

@@ -25,6 +25,7 @@
       },
       "Example.Ecommerce.Domain.DTO/1.0.0": {
         "dependencies": {
+          "Example.Ecommerce.Domain.Entity": "1.0.0",
           "Example.Ecommerce.Transversal.Common": "1.0.0"
         },
         "runtime": {
